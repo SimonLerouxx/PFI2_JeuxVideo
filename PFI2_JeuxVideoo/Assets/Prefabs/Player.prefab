@@ -108,9 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesseLook: 2.5
   lookXLimit: 45
-  sensitivity: 60
+  sensitivity: 45
   Player: {fileID: 2792922690744742510}
-  Gun: {fileID: 0}
+  Gun: {fileID: 6614409258901876116}
 --- !u!1 &2792922690744742510
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 4079803198956801676}
   - component: {fileID: 1907920632864794997}
   - component: {fileID: 4009449277206934089}
+  - component: {fileID: 757514166961115624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -336,6 +337,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9fab5998-9bdf-4fab-9e38-f5f45a9a1748
     m_ActionName: Player/StopMoving
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7943342965293520716}
+        m_TargetAssemblyTypeName: GunComponent, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e0ba0855-ede2-46af-98a4-f9e1863236af
+    m_ActionName: Player/Shoot[/Mouse/press]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7943342965293520716}
+        m_TargetAssemblyTypeName: GunComponent, Assembly-CSharp
+        m_MethodName: Reload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6b270890-a08e-4113-a271-35728a8d7bd2
+    m_ActionName: Player/Reload[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -362,6 +395,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 1.9999999, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &757514166961115624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792922690744742510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c818cee7e3fc4d5459a8dce729b1faac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7288710875623614241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +415,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333663892861650909}
     m_Modifications:
+    - target: {fileID: 800197881477296237, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 2356054462668502703}
+    - target: {fileID: 800197881477296237, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2792922690744742510}
+    - target: {fileID: 800197881477296237, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+      propertyPath: BulletPrefabs
+      value: 
+      objectReference: {fileID: 6679407248397607037, guid: 34dab8000aaa3f948994617f729393aa, type: 3}
     - target: {fileID: 4534467049312012981, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
       propertyPath: m_Name
       value: GunDefault
@@ -429,10 +486,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4534467049312012981, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6686326264568819313}
   m_SourcePrefab: {fileID: 100100000, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
 --- !u!4 &1477165835508887835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8167631334945838650, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
   m_PrefabInstance: {fileID: 7288710875623614241}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6614409258901876116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4534467049312012981, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+  m_PrefabInstance: {fileID: 7288710875623614241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6686326264568819313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614409258901876116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516a0397030c10141b74eccc666af012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7943342965293520716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 800197881477296237, guid: 6bc5471c0d9f9e84f89c6220a1f2199c, type: 3}
+  m_PrefabInstance: {fileID: 7288710875623614241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614409258901876116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30bf76f0b14e2945a3f45f361d58677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
