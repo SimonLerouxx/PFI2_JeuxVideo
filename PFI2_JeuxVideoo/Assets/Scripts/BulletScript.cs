@@ -44,13 +44,12 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ennemi")
         {
-            Instantiate(particleSystemm, transform.position, transform.rotation);
+            //Instantiate(particleSystemm, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else
         {
-            Debug.Log("destroy");
-            Instantiate(particleSystemm,transform.position,transform.rotation);
+            //Instantiate(particleSystemm,transform.position,transform.rotation);
             Destroy(gameObject);
         }
 
