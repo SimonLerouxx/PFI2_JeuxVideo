@@ -376,6 +376,7 @@
 "Assets/Scripts/Gun/GunComponent.cs"
 "Assets/Scripts/Inventory.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/RoundManager.cs"
 -langversion:9.0
 
 /deterministic

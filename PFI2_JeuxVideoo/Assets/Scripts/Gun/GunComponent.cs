@@ -76,10 +76,10 @@ public class GunComponent : MonoBehaviour
     {
         canShoot= false;
         StartCoroutine(Recoil(time / 16, -1));
-        yield return new WaitForSeconds(time/4);
+        yield return new WaitForSeconds(time / 16);
 
-        StartCoroutine(Recoil((time * 15) / 8, 1));
-        yield return new WaitForSeconds((time*3) / 4);
+        StartCoroutine(Recoil((time * 15) / 16, 1));
+        yield return new WaitForSeconds((time * 15) / 16);
         canShoot = true;
     }
 

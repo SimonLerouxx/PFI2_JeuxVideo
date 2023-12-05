@@ -45,6 +45,7 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.tag == "Ennemi")
         {
             //Instantiate(particleSystemm, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
         else
