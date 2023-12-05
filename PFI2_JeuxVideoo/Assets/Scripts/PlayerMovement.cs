@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject Camera;
     [SerializeField] float jumpForce = 75;
     Rigidbody rb;
-    bool canJump = false;
+    public bool canJump = false;
 
 
 
@@ -48,25 +48,25 @@ public class PlayerMovement : MonoBehaviour
         }
         
         
-        RaycastHit hit;
-        float thickness = 0.5f; //<-- Desired thickness here.
-        Vector3 origin = transform.position;
-        Vector3 direction = transform.TransformDirection(Vector3.down);
-        //if (Physics.SphereCast(origin, thickness, Vector3.down, out hit,0.2f))
+        //RaycastHit hit;
+        //float thickness = 0.5f; //<-- Desired thickness here.
+        //Vector3 origin = transform.position;
+        //Vector3 direction = transform.TransformDirection(Vector3.down);
+        ////if (Physics.SphereCast(origin, thickness, Vector3.down, out hit,0.2f))
+        ////{
+        ////    Debug.DrawLine(transform.position, hit.point, Color.red);
+        ////    canJump = true;
+        ////}
+        //////Does the ray intersect any objects excluding the player layer
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0), transform.TransformDirection(Vector3.down), out hit, 0.85f) ||
+        //     Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0f), transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0, 0, 0.5f), transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0, 0, -0.5f), transform.TransformDirection(Vector3.down), out hit, 0.85f))
         //{
-        //    Debug.DrawLine(transform.position, hit.point, Color.red);
         //    canJump = true;
         //}
-        ////Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0), transform.TransformDirection(Vector3.down), out hit, 0.85f) ||
-             Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0f), transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0, 0, 0.5f), transform.TransformDirection(Vector3.down), out hit, 0.85f) || Physics.Raycast(transform.position + new Vector3(0, 0, -0.5f), transform.TransformDirection(Vector3.down), out hit, 0.85f))
-        {
-            canJump = true;
-        }
-        else
-        {
-            canJump= false;
-        }
+        //else
+        //{
+        //    canJump= false;
+        //}
 
     }
 

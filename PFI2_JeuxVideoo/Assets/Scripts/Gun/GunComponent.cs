@@ -75,10 +75,10 @@ public class GunComponent : MonoBehaviour
     IEnumerator GunRecoil(float time)
     {
         canShoot= false;
-        StartCoroutine(Recoil(time / 8, -1));
+        StartCoroutine(Recoil(time / 16, -1));
         yield return new WaitForSeconds(time/4);
 
-        StartCoroutine(Recoil((time * 7) / 8, 1));
+        StartCoroutine(Recoil((time * 15) / 8, 1));
         yield return new WaitForSeconds((time*3) / 4);
         canShoot = true;
     }
