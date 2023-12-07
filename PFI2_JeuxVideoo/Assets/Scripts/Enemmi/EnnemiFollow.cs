@@ -18,7 +18,11 @@ public class EnnemiFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Player.transform.position);
         agent.destination = Player.transform.position;
+    }
+
+    private void OnDestroy()
+    {
+        Player.GetComponent<Inventory>().AddCoins(1);
     }
 }

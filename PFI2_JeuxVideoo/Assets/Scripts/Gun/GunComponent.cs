@@ -42,7 +42,7 @@ public class GunComponent : MonoBehaviour
             {
                 //Shoot
                 GameObject bullet = Instantiate(BulletPrefabs, transform.position, transform.rotation);
-                bullet.GetComponent<BulletScript>().GiveDirection(Camera.transform.forward);
+                bullet.GetComponent<BulletScript>().GiveDirection(Camera.transform.forward + attributes.GetAccuracy());
                 StartCoroutine(GunRecoil(attributes.GetTimeBetweenShot()));
             }
             else

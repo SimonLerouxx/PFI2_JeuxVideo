@@ -21,8 +21,14 @@ public class GunChange : MonoBehaviour
         
     }
 
-    void AddScope()
+    public void AddScope()
     {
+        Scope.SetActive(true);
+    }
 
+
+    public void Damage()
+    {
+        Body.SetActive(true);
     }
 }

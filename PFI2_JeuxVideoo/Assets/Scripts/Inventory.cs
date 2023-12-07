@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
     int numberOfBulletInGun = 5;
     int numberBullet = 30;
+    int numberCoins = 30;
 
 
     public bool ShootBullet()
@@ -48,6 +49,22 @@ public class Inventory : MonoBehaviour
         }
         return true;
 
+    }
+
+    public void AddCoins(int nb)
+    {
+        numberCoins = numberCoins+ nb;
+    }
+
+    public void RemoveCoins(int nb)
+    {
+        numberCoins = numberCoins - nb;
+    }
+
+
+    public int GetCoins()
+    {
+        return numberCoins;
     }
     void Start()
     {
