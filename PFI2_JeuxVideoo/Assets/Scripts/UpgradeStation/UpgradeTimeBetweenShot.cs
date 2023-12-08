@@ -11,6 +11,7 @@ public class UpgradeTimeBetweenShot : UpgradeStationComponent
     {
         
         gunAttributes.timeBetweenShot = gunAttributes.timeBetweenShot - 0.25f;
+        gunChange.AddBack();
 
     }
 

@@ -10,16 +10,8 @@ public class GunChange : MonoBehaviour
     [SerializeField] GameObject Body;
     [SerializeField] GameObject UpperBody;
     [SerializeField] GameObject Back;
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject Muzzle;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddScope()
     {
@@ -30,5 +22,17 @@ public class GunChange : MonoBehaviour
     public void Damage()
     {
         Body.SetActive(true);
+    }
+
+    public void AddBack()
+    {
+        Back.SetActive(true);
+    }
+
+
+    public void AddUpperBody()
+    {
+        Muzzle.transform.localPosition = new Vector3(0, 0, -0.2f);
+        UpperBody.SetActive(true);
     }
 }

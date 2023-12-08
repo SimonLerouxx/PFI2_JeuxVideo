@@ -10,6 +10,7 @@ public class MoreBullet : UpgradeStationComponent
     public override void Upgrade()
     {
         gunAttributes.numberOfBulletInGun = gunAttributes.numberOfBulletInGun + 1;
+        gunChange.AddUpperBody();
 
     }
 

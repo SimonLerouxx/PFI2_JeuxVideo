@@ -377,6 +377,7 @@
 "Assets/Scripts/Inventory.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/RoundManager.cs"
+"Assets/Scripts/UpgradeStation/BulletStation.cs"
 "Assets/Scripts/UpgradeStation/MoreBullet.cs"
 "Assets/Scripts/UpgradeStation/UpgradeAccuracy.cs"
 "Assets/Scripts/UpgradeStation/UpgradeDamage.cs"
