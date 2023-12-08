@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     int numberOfBulletInGun = 5;
-    int numberBullet = 0;
+    int numberBullet = 30;
     int numberCoins = 30;
 
 
