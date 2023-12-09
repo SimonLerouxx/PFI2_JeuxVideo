@@ -19,6 +19,7 @@ public class RoundManager : MonoBehaviour
     float time = 0;
     int numberOfRounds = 1;
     bool roundIsStarted = false;
+    bool finishedSpawning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +32,13 @@ public class RoundManager : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time > 10)
+        if (time > 15)
         {
             if(!roundIsStarted)
+            {
+                return;
+            }
+            if(!finishedSpawning)
             {
                 return;
             }
@@ -55,6 +60,7 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator SpawnEnnemies()
     {
+        finishedSpawning= false;
         float time = 0;
         float tick = timeForRound / basicEnemmiByRound;
         int random;
@@ -66,6 +72,7 @@ public class RoundManager : MonoBehaviour
             time+= tick;
             yield return new WaitForSeconds(tick);
         }
+        finishedSpawning= true;
         
     }
 

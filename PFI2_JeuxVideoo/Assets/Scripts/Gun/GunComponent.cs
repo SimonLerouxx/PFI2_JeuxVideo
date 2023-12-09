@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.OSX;
 
 public class GunComponent : MonoBehaviour
 {
@@ -17,10 +18,15 @@ public class GunComponent : MonoBehaviour
 
 
     bool canShoot = true;
+
+    float timeReload = 2.1f;
+
+    Animator animator;
     void Start()
     {
         inventory = player.GetComponent<Inventory>();
         attributes = GetComponent<GunAttributes>();
+        animator = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,8 +65,13 @@ public class GunComponent : MonoBehaviour
     {
         if (ctx.performed)
         {
+            if(!canShoot)
+            {
+                return;
+            }
             if (inventory.Reload(attributes.GetNumberBulletInGun()))
             {
+                StartCoroutine(ReloadCoroutine());
                 //Reload scuccesful
             }
             else
@@ -72,8 +83,28 @@ public class GunComponent : MonoBehaviour
 
     }
 
+    IEnumerator ReloadCoroutine()
+    {
+        StopCoroutine("Recoil");
+        StopCoroutine("GunRecoil");
+        animator.enabled = true;
+       // animator.SetBool("isReloading", true);
+        animator.Play("Reload");
+        
+        canShoot = false;
+       
+        yield return new WaitForSeconds(timeReload);
+        //animator.SetBool("isReloading", false);
+
+        
+        //yield return new WaitForSeconds(1f);
+        animator.enabled= false;
+        canShoot = true;
+    }
+
     IEnumerator GunRecoil(float time)
     {
+
         canShoot= false;
         StartCoroutine(Recoil(time / 16, -1));
         yield return new WaitForSeconds(time / 16);
@@ -81,14 +112,16 @@ public class GunComponent : MonoBehaviour
         StartCoroutine(Recoil((time * 15) / 16, 1));
         yield return new WaitForSeconds((time * 15) / 16);
         canShoot = true;
+
     }
 
 
     IEnumerator Recoil(float time,int direction)
     {
+        
         float timeByTick = time / 60;
         int i = 0;
-        while(i<60)
+        while (i<60)
         {
             transform.localRotation *= Quaternion.Euler(0.25f*direction, 0, 0);
             i++;

@@ -35,7 +35,6 @@ public class FlagScript : MonoBehaviour
         float position = 0;
         while (true)
         {
-            Debug.Log(position);
             if(position >= 0.4)
             {
                 direction = -1;
