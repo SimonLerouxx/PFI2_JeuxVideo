@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -8,12 +9,21 @@ public class Inventory : MonoBehaviour
     int numberBullet = 30;
     int numberCoins = 30;
 
+    private UI_Manager uiManager;
+
+    void Awake()
+    {
+        uiManager = GameObject­.FindWithTag("UI").GetComponent<UI_Manager>();
+        uiManager.UpdateAmmo(numberOfBulletInGun, numberBullet);
+        uiManager.UpdateMoney(numberCoins);
+    }
 
     public bool ShootBullet()
     {
         if(numberOfBulletInGun > 0)
         {
             numberOfBulletInGun--;
+            uiManager.UpdateAmmo(numberOfBulletInGun, numberBullet);
             return true;
         }
         return false;
@@ -38,14 +48,16 @@ public class Inventory : MonoBehaviour
             //Plus de balles que pour recharger
             numberBullet = numberBullet - (numberBulletToReload - numberOfBulletInGun);
             numberOfBulletInGun = numberBulletToReload;
-            
+            uiManager.UpdateAmmo(numberOfBulletInGun, numberBullet);
+
         }
         else
         {
             //Moin de balle que le rechargement
             numberOfBulletInGun =numberOfBulletInGun+ numberBullet;
             numberBullet = 0;
-            
+            uiManager.UpdateAmmo(numberOfBulletInGun, numberBullet);
+
         }
         return true;
 
@@ -54,16 +66,19 @@ public class Inventory : MonoBehaviour
     public void AddCoins(int nb)
     {
         numberCoins = numberCoins+ nb;
+        uiManager.UpdateMoney(numberCoins);
     }
 
     public void RemoveCoins(int nb)
     {
         numberCoins = numberCoins - nb;
+        uiManager.UpdateMoney(numberCoins);
     }
 
 
     public int GetCoins()
     {
+        uiManager.UpdateMoney(numberCoins);
         return numberCoins;
     }
 
@@ -71,10 +86,7 @@ public class Inventory : MonoBehaviour
     public void AddBullet(int nb)
     {
         numberBullet= numberBullet + nb;
-    }
-    void Start()
-    {
-        
+        uiManager.UpdateAmmo(numberOfBulletInGun, numberBullet);
     }
 
     void Update()
