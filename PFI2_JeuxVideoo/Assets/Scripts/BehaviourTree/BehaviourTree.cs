@@ -14,6 +14,13 @@ public class BehaviourTree : MonoBehaviour
     [SerializeField]
     BoxCollider boxCollider;
 
+    [SerializeField] GameObject BulletBoss;
+
+    GiveAction giveAction;
+
+
+    Animator animator;
+
 
     GameObject Player;
 
@@ -23,31 +30,32 @@ public class BehaviourTree : MonoBehaviour
     {
 
         Player = GameObject.Find("Player");
-
+        animator= GetComponent<Animator>();
+        giveAction = GetComponent<GiveAction>();
         TaskBT[] taskCloseAttack = new TaskBT[]
         {
-            new CloseAttack(agent,Player)
+            new CloseAttack(agent,Player,animator)
         };
 
         TaskBT[] taskRangedAttack = new TaskBT[]
         {
-            new RangedAttack(boxCollider,agent)
+            new RangedAttack(boxCollider,agent,animator,BulletBoss,giveAction)
         };
 
         TaskBT[] taskDestroyWall = new TaskBT[]
         {
-            new DestroyWall(boxCollider,agent)
+            new DestroyWall(boxCollider,agent,animator)
         };
 
 
         TaskBT[] taskChase = new TaskBT[]
         {
-            new Chase(agent,Player)
+            new Chase(agent,Player,animator)
         };
 
         TaskBT[] taskRunChase = new TaskBT[]
        {
-            new RunChase(agent,Player)
+            new RunChase(agent,Player,animator)
        };
 
 

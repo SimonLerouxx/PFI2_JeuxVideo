@@ -14,9 +14,6 @@ public class BulletScript : MonoBehaviour
 
     [SerializeField] GameObject particleSystemm;
 
-    void Start()
-    {
-    }
 
 
     public void GiveDirection(Vector3 dir)
@@ -46,6 +43,11 @@ public class BulletScript : MonoBehaviour
         {
             //Instantiate(particleSystemm, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            collision.gameObject.GetComponent<BossHealthScript>().Damage(GlobalVariable.DamageGun);
             Destroy(gameObject);
         }
         else

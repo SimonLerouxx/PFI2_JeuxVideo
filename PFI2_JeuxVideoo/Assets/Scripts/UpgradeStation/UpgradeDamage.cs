@@ -10,6 +10,7 @@ public class UpgradeDamage : UpgradeStationComponent
     public override void Upgrade()
     {
         gunAttributes.damage = gunAttributes.damage + 1;
+        GlobalVariable.DamageGun = GlobalVariable.DamageGun + 1;
         gunChange.Damage();
     }
 

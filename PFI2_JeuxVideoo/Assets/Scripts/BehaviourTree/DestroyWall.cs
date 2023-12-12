@@ -9,11 +9,14 @@ public class DestroyWall : TaskBT
 
     NavMeshAgent agent { get; set; }
 
+    Animator animator { get; set; }
 
-    public DestroyWall(BoxCollider boxCollider,NavMeshAgent nav)
+
+    public DestroyWall(BoxCollider boxCollider,NavMeshAgent nav,Animator anim)
     {
         BoxCollider= boxCollider;
         agent = nav;
+        animator = anim;
     }
 
     public override TaskState Execute()
@@ -21,7 +24,10 @@ public class DestroyWall : TaskBT
         //Attacque si proche
         if (BoxCollider.GetComponent<DetectionBoss>().seeDestructibleWall)
         {
-            Debug.Log("Breack wall");
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isCloseAttack", false);
+            animator.SetBool("isRangedAttack", false);
+            animator.SetBool("isRunning", false);
             return TaskState.Success;
         }
 

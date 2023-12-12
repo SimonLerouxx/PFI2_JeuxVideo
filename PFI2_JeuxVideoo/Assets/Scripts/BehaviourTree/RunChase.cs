@@ -9,15 +9,18 @@ public class RunChase : TaskBT
 
     private GameObject Player { get; set; }
 
+    Animator animator;
+
     const float maxTimeChasing = 10f;
     float timeSinceChasing = 0;
     float speedRunning = 5;
 
-    public RunChase(NavMeshAgent agent, GameObject player)
+    public RunChase(NavMeshAgent agent, GameObject player, Animator anim)
     {
 
         Agent = agent;
         Player = player;
+        animator = anim;
     }
 
     public override TaskState Execute()
@@ -33,8 +36,10 @@ public class RunChase : TaskBT
             return TaskState.Failure;
         }
 
-
-        Debug.Log("run");
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isCloseAttack", false);
+        animator.SetBool("isRangedAttack", false);
+        animator.SetBool("isRunning", true);
         return TaskState.Success;
         
 
