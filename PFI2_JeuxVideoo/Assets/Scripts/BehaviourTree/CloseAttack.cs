@@ -9,27 +9,31 @@ public class CloseAttack : TaskBT
 
     private GameObject Player { get; set; }
 
+    GiveAction giveAction;
+
     Animator animator;
 
 
-    public CloseAttack(NavMeshAgent agent, GameObject player, Animator anim)
+    public CloseAttack(NavMeshAgent agent, GameObject player, Animator anim,GiveAction action)
     {
 
         Agent = agent;
         Player = player;
         animator = anim;
+        giveAction = action;
     }
 
     public override TaskState Execute()
     {
         //Attacque si proche
         //Debug.Log(Vector3.Distance(Agent.gameObject.transform.position, Player.transform.position));
-        if (Vector3.Distance(Agent.gameObject.transform.position, Player.transform.position) < 2)
+        if (Vector3.Distance(Agent.gameObject.transform.position, Player.transform.position) < 1.5f)
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isCloseAttack", true);
             animator.SetBool("isRangedAttack", false);
             animator.SetBool("isRunning", false);
+            giveAction.Attack();
             return TaskState.Success;
         }
 

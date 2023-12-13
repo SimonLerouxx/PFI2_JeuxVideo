@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     float moreEnemmyByRound = 5;
     [SerializeField] GameObject basicEnemmi;
     [SerializeField] GameObject Boss;
+    [SerializeField] GameObject Player;
     [SerializeField] TextMeshProUGUI textCountdown;
     [SerializeField] GameObject[] SpawnPoints;
 
@@ -106,6 +107,7 @@ public class RoundManager : MonoBehaviour
     {
         basicEnemmiByRound = basicEnemmiByRound + moreEnemmyByRound;
         roundIsStarted= false;
+        Player.GetComponent<PlayerHealth>().AddHealth();
         StartCoroutine(CountdownBetweenRound());
     }
 

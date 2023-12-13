@@ -34,7 +34,7 @@ public class BehaviourTree : MonoBehaviour
         giveAction = GetComponent<GiveAction>();
         TaskBT[] taskCloseAttack = new TaskBT[]
         {
-            new CloseAttack(agent,Player,animator)
+            new CloseAttack(agent,Player,animator,giveAction)
         };
 
         TaskBT[] taskRangedAttack = new TaskBT[]

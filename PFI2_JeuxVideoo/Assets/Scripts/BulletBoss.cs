@@ -37,6 +37,7 @@ public class BulletBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerHealth>().RemoveHealth(1);
             //Instantiate(particleSystemm, transform.position, transform.rotation);
             //Destroy(collision.gameObject);
             //Destroy(gameObject);
