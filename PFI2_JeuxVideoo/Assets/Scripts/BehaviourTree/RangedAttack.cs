@@ -14,7 +14,7 @@ public class RangedAttack : TaskBT
 
     GiveAction giveAction;
 
-    float cooldown=15;
+    //float cooldown=15;
     float time = 0;
     public RangedAttack(BoxCollider boxCollider, NavMeshAgent navMeshAgent, Animator anim, GameObject bulletBoss,GiveAction giveAction)
     {
@@ -29,7 +29,7 @@ public class RangedAttack : TaskBT
     {
 
         time = time+ Time.deltaTime;
-        if(time < cooldown)
+        if(time < GlobalVariable.coolDownRangedAttack)
         {
             animator.SetBool("isRangedAttack", false);
             return TaskState.Failure;

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     int numberOfBulletInGun = 5;
-    int numberBullet = 30;
-    int numberCoins = 30;
+    public int numberBullet = 30;
+    public int numberCoins = 30;
+    public int moneySinceStart=30;
 
     private UI_Manager uiManager;
 
@@ -66,6 +67,7 @@ public class Inventory : MonoBehaviour
     public void AddCoins(int nb)
     {
         numberCoins = numberCoins+ nb;
+        moneySinceStart = moneySinceStart + nb;
         uiManager.UpdateMoney(numberCoins);
     }
 

@@ -33,7 +33,7 @@ public class CloseAttack : TaskBT
             animator.SetBool("isCloseAttack", true);
             animator.SetBool("isRangedAttack", false);
             animator.SetBool("isRunning", false);
-            giveAction.Attack();
+            giveAction.Attack(Player);
             return TaskState.Success;
         }
 

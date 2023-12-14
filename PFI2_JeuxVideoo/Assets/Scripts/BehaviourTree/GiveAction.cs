@@ -16,15 +16,19 @@ public class GiveAction : MonoBehaviour
        bullet.GetComponent<BulletBoss>().GiveDirection(direction);
     }
 
-    public void Attack()
+    public void Attack(GameObject Player)
     {
-        StartCoroutine(AttackDelay());
+        StartCoroutine(AttackDelay(Player));
     }
 
 
-    IEnumerator AttackDelay()
+    IEnumerator AttackDelay(GameObject Player)
     {
         yield return new WaitForSeconds(1f);
-        Player.GetComponent<PlayerHealth>().RemoveHealth(1);
+        if(Vector3.Distance(transform.position, Player.transform.position) < 3)
+        {
+            Player.GetComponent<PlayerHealth>().RemoveHealth(1);
+        }
+        
     }
 }

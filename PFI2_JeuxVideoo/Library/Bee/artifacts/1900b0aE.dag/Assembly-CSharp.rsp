@@ -377,6 +377,7 @@
 "Assets/Scripts/BehaviourTree/Sequence.cs"
 "Assets/Scripts/BehaviourTree/TaskBT.cs"
 "Assets/Scripts/BehaviourTree/TaskNode.cs"
+"Assets/Scripts/BossDefficultyAdaptability.cs"
 "Assets/Scripts/BossHealthScript.cs"
 "Assets/Scripts/BridgeStartComponent.cs"
 "Assets/Scripts/BulletBoss.cs"

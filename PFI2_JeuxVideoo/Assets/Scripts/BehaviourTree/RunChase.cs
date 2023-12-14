@@ -27,7 +27,7 @@ public class RunChase : TaskBT
     {
         timeSinceChasing += Time.deltaTime;
 
-        Agent.speed = speedRunning;
+        Agent.speed = GlobalVariable.speedRun;
         Agent.destination = Player.transform.position;
 
         //Trop proche pour courir

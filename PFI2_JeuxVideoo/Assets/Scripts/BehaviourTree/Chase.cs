@@ -13,7 +13,7 @@ public class Chase : TaskBT
 
     const float maxTimeChasing = 10f;
     float timeSinceChasing = 0;
-    float speedWalking = 3;
+    //float speedWalking = 3;
 
     public Chase(NavMeshAgent agent, GameObject player,Animator anim)
     {
@@ -27,7 +27,7 @@ public class Chase : TaskBT
     {
         timeSinceChasing+= Time.deltaTime;
 
-        Agent.speed = speedWalking;
+        Agent.speed = GlobalVariable.speedWalk;
         Agent.destination = Player.transform.position;
 
         //Trop loin pour courir
