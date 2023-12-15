@@ -49,8 +49,11 @@ public class CameraMovement : MonoBehaviour
             if(hit.transform.tag == "UpgradeStation")
             {
                 UpgradeStationComponent upgradeStationComponent = hit.transform.gameObject.GetComponent<UpgradeStationComponent>();
-
-                if (upgradeStationComponent.CanPurchase(inventory.GetCoins()))
+                if (upgradeStationComponent.HasMax())
+                {
+                    textInteract.text = "Vous avez le maximum";
+                }
+                else if (upgradeStationComponent.CanPurchase(inventory.GetCoins()))
                 {
                     textInteract.text = "Appuyer sur [E] pour acheter";
                     if (Input.GetKeyDown(KeyCode.E))

@@ -383,6 +383,7 @@
 "Assets/Scripts/BridgeStartComponent.cs"
 "Assets/Scripts/BulletBoss.cs"
 "Assets/Scripts/CameraMovement.cs"
+"Assets/Scripts/Enemmi/CollisionEnnemiPlayer.cs"
 "Assets/Scripts/Enemmi/EnnemiFollow.cs"
 "Assets/Scripts/FallComponent.cs"
 "Assets/Scripts/FlagScript.cs"

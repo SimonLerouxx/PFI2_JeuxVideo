@@ -7,6 +7,8 @@ public class UpgradeDamage : UpgradeStationComponent
 
     GunChange gunChange;
     GunAttributes gunAttributes;
+
+    const int maxDamage = 10;
     public override void Upgrade()
     {
         gunAttributes.damage = gunAttributes.damage + 1;
@@ -36,4 +38,12 @@ public class UpgradeDamage : UpgradeStationComponent
         gunChange = gun.GetComponent<GunChange>();
     }
 
+    public override bool HasMax()
+    {
+        if(gunAttributes.damage >= maxDamage)
+        {
+            return true;
+        }
+        return false;
+    }
 }

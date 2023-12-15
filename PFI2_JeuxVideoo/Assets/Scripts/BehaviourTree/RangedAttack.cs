@@ -14,6 +14,8 @@ public class RangedAttack : TaskBT
 
     GiveAction giveAction;
 
+
+
     //float cooldown=15;
     float time = 0;
     public RangedAttack(BoxCollider boxCollider, NavMeshAgent navMeshAgent, Animator anim, GameObject bulletBoss,GiveAction giveAction)
@@ -29,6 +31,7 @@ public class RangedAttack : TaskBT
     {
 
         time = time+ Time.deltaTime;
+        Debug.Log(GlobalVariable.coolDownRangedAttack);
         if(time < GlobalVariable.coolDownRangedAttack)
         {
             animator.SetBool("isRangedAttack", false);
@@ -43,8 +46,8 @@ public class RangedAttack : TaskBT
             animator.SetBool("isRunning", false);
             agent.destination = agent.transform.position;
             time = 0;
-
-            giveAction.CreateBossBullet(BulletBoss, agent.transform, agent.transform.forward);
+            Vector3 dir = (BoxCollider.GetComponent<DetectionBoss>().GetPlayerPosition()- (agent.transform.position+new Vector3(0,1,0))).normalized;
+            giveAction.CreateBossBullet(BulletBoss, agent.transform, dir);
 
             return TaskState.Success;
         }

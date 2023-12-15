@@ -6,6 +6,9 @@ public class GiveAction : MonoBehaviour
 {
     GameObject Player;
 
+
+    bool isCloseAttacking;
+
     private void Start()
     {
         Player = GameObject.Find("Player");
@@ -18,17 +21,22 @@ public class GiveAction : MonoBehaviour
 
     public void Attack(GameObject Player)
     {
-        StartCoroutine(AttackDelay(Player));
+        if(!isCloseAttacking)
+        {
+            StartCoroutine(AttackDelay(Player));
+        }
+        
     }
 
 
     IEnumerator AttackDelay(GameObject Player)
     {
+        isCloseAttacking= true;
         yield return new WaitForSeconds(1f);
         if(Vector3.Distance(transform.position, Player.transform.position) < 3)
         {
             Player.GetComponent<PlayerHealth>().RemoveHealth(1);
         }
-        
+        isCloseAttacking= false;
     }
 }

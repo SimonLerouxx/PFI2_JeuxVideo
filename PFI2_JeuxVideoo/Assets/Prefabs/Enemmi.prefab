@@ -1107,6 +1107,7 @@ GameObject:
   - component: {fileID: -6626356268689146575}
   - component: {fileID: 2441314372382681014}
   - component: {fileID: 3721288307014888526}
+  - component: {fileID: 5628300295777519024}
   m_Layer: 9
   m_Name: Enemmi
   m_TagString: Ennemi
@@ -1239,6 +1240,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5628300295777519024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878070430935249359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee3bdaa8dfb07147b4a48c781062bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5934594524970125554
 GameObject:
   m_ObjectHideFlags: 0

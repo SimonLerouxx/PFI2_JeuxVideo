@@ -7,6 +7,7 @@ public class MoreBullet : UpgradeStationComponent
 
     GunChange gunChange;
     GunAttributes gunAttributes;
+    const int maxBulletInGun = 30;
     public override void Upgrade()
     {
         gunAttributes.numberOfBulletInGun = gunAttributes.numberOfBulletInGun + 1;
@@ -36,4 +37,12 @@ public class MoreBullet : UpgradeStationComponent
         gunChange = gun.GetComponent<GunChange>();
     }
 
+    public override bool HasMax()
+    {
+        if (gunAttributes.numberOfBulletInGun < maxBulletInGun)
+        {
+            return false;
+        }
+        return true;
+    }
 }

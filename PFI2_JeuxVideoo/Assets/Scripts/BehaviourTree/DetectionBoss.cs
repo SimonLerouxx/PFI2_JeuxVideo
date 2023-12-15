@@ -9,11 +9,14 @@ public class DetectionBoss : MonoBehaviour
     public bool seePlayer = false;
     public bool seeDestructibleWall = false;
 
+    Vector3 positionPlayer;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
             seePlayer= true;
+            positionPlayer= other.transform.position;
         }
         else if(other.gameObject.tag == "destructibleWall")
         {
@@ -25,5 +28,11 @@ public class DetectionBoss : MonoBehaviour
     {
         seeDestructibleWall = false;
         seePlayer = false;
+    }
+
+
+    public Vector3 GetPlayerPosition()
+    {
+        return positionPlayer;
     }
 }

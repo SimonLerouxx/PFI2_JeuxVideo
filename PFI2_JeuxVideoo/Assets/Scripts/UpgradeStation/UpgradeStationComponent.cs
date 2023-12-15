@@ -30,4 +30,6 @@ public abstract class UpgradeStationComponent : MonoBehaviour
     public abstract void Upgrade();
 
     public abstract bool CanPurchase(int nbCoins);
+
+    public abstract bool HasMax();
 }

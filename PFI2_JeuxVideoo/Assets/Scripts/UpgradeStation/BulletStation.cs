@@ -27,4 +27,8 @@ public class BulletStation : UpgradeStationComponent
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
     }
 
+    public override bool HasMax()
+    {
+        return false;
+    }
 }

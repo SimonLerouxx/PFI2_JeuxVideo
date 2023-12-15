@@ -31,7 +31,7 @@ public class BossDefficultyAdaptability : MonoBehaviour
         GlobalVariable.speedWalk = 3 * multiplyer;
         GlobalVariable.speedRun = 5 * multiplyer;
         GlobalVariable.healthBoss = (int)(5 * multiplyer);
-        GlobalVariable.coolDownRangedAttack = 20 - (multiplyer*5);
+        GlobalVariable.coolDownRangedAttack = 15 - (multiplyer*5);
     }
 
 

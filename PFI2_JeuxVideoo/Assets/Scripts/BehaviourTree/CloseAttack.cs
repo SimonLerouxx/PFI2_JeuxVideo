@@ -9,10 +9,10 @@ public class CloseAttack : TaskBT
 
     private GameObject Player { get; set; }
 
+
     GiveAction giveAction;
 
     Animator animator;
-
 
     public CloseAttack(NavMeshAgent agent, GameObject player, Animator anim,GiveAction action)
     {

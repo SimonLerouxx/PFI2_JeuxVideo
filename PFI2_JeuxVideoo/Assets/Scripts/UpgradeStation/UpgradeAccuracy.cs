@@ -35,4 +35,12 @@ public class UpgradeAccuracy : UpgradeStationComponent
         gunChange = gun.GetComponent<GunChange>();
     }
 
+    public override bool HasMax()
+    {
+        if(gunAttributes.accuracy ==0)
+        {
+            return true;
+        }
+        return false;
+    }
 }

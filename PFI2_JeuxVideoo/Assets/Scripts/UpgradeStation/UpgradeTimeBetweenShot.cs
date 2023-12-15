@@ -37,4 +37,12 @@ public class UpgradeTimeBetweenShot : UpgradeStationComponent
         gunChange = gun.GetComponent<GunChange>();
     }
 
+    public override bool HasMax()
+    {
+        if(gunAttributes.timeBetweenShot <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }
