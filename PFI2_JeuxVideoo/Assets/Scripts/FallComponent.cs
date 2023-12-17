@@ -7,6 +7,8 @@ public class FallComponent : MonoBehaviour
     // Start is called before the first frame update
     const float RespawnY = 40;
     [SerializeField] GameObject[] RespawnPositions;
+
+    [SerializeField] GameObject Player;
     void Start()
     {
         
@@ -27,7 +29,7 @@ public class FallComponent : MonoBehaviour
                     closestPositionIndex = i;
                 }
             }
-            
+            Player.GetComponent<PlayerHealth>().RemoveHealth(1);
             transform.position = RespawnPositions[closestPositionIndex].transform.position;
 
         }

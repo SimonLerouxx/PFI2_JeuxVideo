@@ -8,7 +8,7 @@ public class RoundManager : MonoBehaviour
 {
 
     float timeBetweenRound = 5;
-    float timeForRound = 60;
+    float timeForRound = 40;
 
     float basicEnemmiByRound = 10;
     float moreEnemmyByRound = 5;
