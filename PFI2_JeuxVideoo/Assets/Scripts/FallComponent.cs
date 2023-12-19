@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class FallComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
     const float RespawnY = 40;
     [SerializeField] GameObject[] RespawnPositions;
 
     [SerializeField] GameObject Player;
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
