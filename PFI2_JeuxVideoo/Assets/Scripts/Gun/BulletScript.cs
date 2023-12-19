@@ -9,8 +9,8 @@ public class BulletScript : MonoBehaviour
 
     float timeToDie = 2;
     float time = 0;
-    float initialSpeed = 100;
-    float speed = 100;
+    float initialSpeed = 50;
+    float speed = 50;
 
     [SerializeField] GameObject particleSystemm;
 

@@ -106,24 +106,24 @@ public class GunComponent : MonoBehaviour
     {
 
         canShoot= false;
-        StartCoroutine(Recoil(time / 16, -1));
-        yield return new WaitForSeconds(time / 16);
+        StartCoroutine(Recoil(time / 16f, -1));
+        yield return new WaitForSeconds(time / 16f);
 
-        StartCoroutine(Recoil((time * 15) / 16, 1));
-        yield return new WaitForSeconds((time * 15) / 16);
+        StartCoroutine(Recoil((time * 15f) / 16f, 1));
+        yield return new WaitForSeconds((time * 16) / 16f);
         canShoot = true;
 
     }
 
 
-    IEnumerator Recoil(float time,int direction)
+    IEnumerator Recoil(float time,float direction)
     {
-        
-        float timeByTick = time / 60;
+
+        float timeByTick = time / 60f;
         int i = 0;
         while (i<60)
         {
-            transform.localRotation *= Quaternion.Euler(0.25f*direction, 0, 0);
+            transform.localRotation *= Quaternion.Euler((0.25f)*direction, 0, 0);
             i++;
             yield return new WaitForSeconds(timeByTick);
         }
